@@ -31,7 +31,7 @@ namespace FitnessTracker
             f.Show();
         }
 
-        private void LoginPage_Load(object sender, EventArgs e)
+        public void LoginPage_Load(object? sender, EventArgs? e)
         {
             loadform(new LoginForm());
         }
