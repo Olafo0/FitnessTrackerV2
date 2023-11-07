@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             MainPanel = new Panel();
             NavPanel = new Panel();
             SignInBTN = new Button();
@@ -56,7 +57,7 @@
             // 
             // SignInBTN
             // 
-            SignInBTN.Location = new Point(51, 33);
+            SignInBTN.Location = new Point(49, 35);
             SignInBTN.Name = "SignInBTN";
             SignInBTN.Size = new Size(75, 23);
             SignInBTN.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // SignUp
             // 
-            SignUp.Location = new Point(335, 33);
+            SignUp.Location = new Point(349, 35);
             SignUp.Name = "SignUp";
             SignUp.Size = new Size(75, 23);
             SignUp.TabIndex = 0;
@@ -82,6 +83,7 @@
             Controls.Add(NavPanel);
             Controls.Add(MainPanel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
             Load += LoginPage_Load;

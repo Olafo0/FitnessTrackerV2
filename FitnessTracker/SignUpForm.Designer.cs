@@ -31,8 +31,13 @@
             label1 = new Label();
             CreateAccountBTN = new Button();
             groupBox1 = new GroupBox();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
             PasswordTB = new TextBox();
             groupBox2 = new GroupBox();
+            WarningLabel1 = new Label();
             UsernameTB = new TextBox();
             groupBox3 = new GroupBox();
             label5 = new Label();
@@ -61,7 +66,7 @@
             // CreateAccountBTN
             // 
             CreateAccountBTN.Cursor = Cursors.Hand;
-            CreateAccountBTN.Location = new Point(166, 452);
+            CreateAccountBTN.Location = new Point(320, 458);
             CreateAccountBTN.Name = "CreateAccountBTN";
             CreateAccountBTN.Size = new Size(152, 23);
             CreateAccountBTN.TabIndex = 1;
@@ -71,23 +76,65 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(PasswordTB);
             groupBox1.Location = new Point(12, 330);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(460, 88);
+            groupBox1.Size = new Size(460, 122);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Create a Password";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(13, 97);
+            label9.Name = "label9";
+            label9.Size = new Size(161, 15);
+            label9.TabIndex = 5;
+            label9.Text = "- Be at least 8 characters long";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(13, 82);
+            label8.Name = "label8";
+            label8.Size = new Size(165, 15);
+            label8.TabIndex = 4;
+            label8.Text = "- Contain at least one number";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(13, 67);
+            label7.Name = "label7";
+            label7.Size = new Size(208, 15);
+            label7.TabIndex = 3;
+            label7.Text = "- Contain at least one specal character";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(13, 52);
+            label6.Name = "label6";
+            label6.Size = new Size(262, 15);
+            label6.TabIndex = 2;
+            label6.Text = "- Contain at least one Upper and lower character";
+            // 
             // PasswordTB
             // 
-            PasswordTB.Location = new Point(175, 36);
+            PasswordTB.Location = new Point(136, 22);
             PasswordTB.Name = "PasswordTB";
-            PasswordTB.Size = new Size(100, 23);
+            PasswordTB.Size = new Size(176, 23);
             PasswordTB.TabIndex = 1;
+            PasswordTB.TextAlign = HorizontalAlignment.Center;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(WarningLabel1);
             groupBox2.Controls.Add(UsernameTB);
             groupBox2.Location = new Point(12, 229);
             groupBox2.Name = "groupBox2";
@@ -96,11 +143,22 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Make a username";
             // 
+            // WarningLabel1
+            // 
+            WarningLabel1.AutoSize = true;
+            WarningLabel1.ForeColor = Color.Red;
+            WarningLabel1.Location = new Point(137, 57);
+            WarningLabel1.Name = "WarningLabel1";
+            WarningLabel1.Size = new Size(175, 15);
+            WarningLabel1.TabIndex = 1;
+            WarningLabel1.Text = "* This username is already taken";
+            WarningLabel1.Visible = false;
+            // 
             // UsernameTB
             // 
-            UsernameTB.Location = new Point(175, 36);
+            UsernameTB.Location = new Point(157, 22);
             UsernameTB.Name = "UsernameTB";
-            UsernameTB.Size = new Size(100, 23);
+            UsernameTB.Size = new Size(140, 23);
             UsernameTB.TabIndex = 0;
             // 
             // groupBox3
@@ -191,7 +249,7 @@
             // 
             WarningLabel.AutoSize = true;
             WarningLabel.ForeColor = Color.Red;
-            WarningLabel.Location = new Point(157, 421);
+            WarningLabel.Location = new Point(89, 462);
             WarningLabel.Name = "WarningLabel";
             WarningLabel.Size = new Size(172, 15);
             WarningLabel.TabIndex = 5;
@@ -239,5 +297,10 @@
         private Label label2;
         private Label label5;
         private Label WarningLabel;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label WarningLabel1;
     }
 }
