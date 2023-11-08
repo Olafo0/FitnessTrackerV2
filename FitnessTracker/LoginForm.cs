@@ -27,9 +27,11 @@ namespace FitnessTracker
             try
             {
                 var Login = _context.Users.Where(x => x.Username_ == UsernameTXT.Text && x.Password_ == PasswordTXT.Text).Single();
-                
+
+                Hide();
                 MainHomePage MainPageLoad = new MainHomePage(Login);
-                MainPageLoad.ShowDialog();
+                MainPageLoad.Show();
+
             }
             catch (System.InvalidOperationException)
             {
