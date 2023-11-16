@@ -83,7 +83,7 @@ namespace FitnessTracker
                         MessageBox.Show("Thank you for making an account with us. Now you can sign in!", "Thank you!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
+                    {   
                         MessageBox.Show("You don't meet the password requirement(s)", "Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

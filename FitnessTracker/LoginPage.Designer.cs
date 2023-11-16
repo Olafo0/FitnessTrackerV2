@@ -42,6 +42,7 @@
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(484, 508);
             MainPanel.TabIndex = 0;
+            MainPanel.Paint += MainPanel_Paint;
             // 
             // NavPanel
             // 
@@ -86,6 +87,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = " ";
             Load += LoginPage_Load;
             NavPanel.ResumeLayout(false);
             ResumeLayout(false);

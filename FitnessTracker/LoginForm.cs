@@ -23,14 +23,20 @@ namespace FitnessTracker
         private void LoginBTN_Click(object sender, EventArgs e)
         {
             var _context = new UserDb();
-
+            string UserPassword = PasswordTXT.Text;
             try
             {
-                var Login = _context.Users.Where(x => x.Username_ == UsernameTXT.Text && x.Password_ == PasswordTXT.Text).Single();
-
-                Hide();
-                MainHomePage MainPageLoad = new MainHomePage(Login);
-                MainPageLoad.Show();
+                var Login = _context.Users.Where(x => x.Username_ == UsernameTXT.Text & x.Password_ == UserPassword).First();
+                if (Login.Password_ == UserPassword)
+                {
+                    Hide();
+                    MainHomePage MainPageLoad = new MainHomePage(Login);
+                    MainPageLoad.Show();
+                }
+                else
+                {
+                    throw new System.InvalidOperationException();
+                }
 
             }
             catch (System.InvalidOperationException)

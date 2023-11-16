@@ -12,40 +12,68 @@ namespace FitnessTracker
 {
     public partial class MainHomePage : Form
     {
+        tbl_Users ImportLogin;
 
         bool SidebarExpand = false;
         public MainHomePage(tbl_Users login)
         {
+            ImportLogin = login;
             InitializeComponent();
         }
 
-        private void SidebarTimer_Tick(object sender, EventArgs e)
+
+        public void loadform(object Form)
         {
-            if (SidebarExpand)
-            {
-                // if Sidebar is open, close it.
-                Sidebar.Width -= 10;
-                if (Sidebar.Width == Sidebar.MinimumSize.Width)
-                {
-                    SidebarExpand = false;
-                    SidebarTimer.Stop();
-                }
-                // if sidebar is closed, open it. 
-            }
-            else
-            {
-                Sidebar.Width += 10;
-                if (Sidebar.Width == Sidebar.MaximumSize.Width)
-                {
-                    SidebarExpand = true;
-                    SidebarTimer.Stop();
-                }
-            }
+            if (this.MainPanel.Controls.Count > 0)
+                this.MainPanel.Controls.RemoveAt(0);
+            Form f = Form as Form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            this.MainPanel.Controls.Add(f);
+            this.MainPanel.Tag = f;
+            f.Show();
         }
+
+
+
+
+
 
         private void MenuBTN_Click(object sender, EventArgs e)
         {
-            SidebarTimer.Start();
+        }
+
+        private void HomeBTN_Click(object sender, EventArgs e)
+        {
+            loadform(new HomeForm());
+        }
+
+        private void AddActivityBTN_Click(object sender, EventArgs e)
+        {
+            loadform(new AddingExercise(ImportLogin.AccountID));
+        }
+
+        private void MyProfileBTN_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void AboutBTN_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void MainHomePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

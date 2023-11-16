@@ -9,6 +9,7 @@ namespace FitnessTracker
 {
     public class UserDb : DbContext
     {
+        // creating the connection
         public DbSet<tbl_Users> Users { get; set; }
         public DbSet<tbl_Exercises> Exercises { get; set; }
 
@@ -21,7 +22,7 @@ namespace FitnessTracker
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<tbl_Users>().ToTable("tbl_Users");
-            modelBuilder.Entity<tbl_Exercises>().ToTable("tbl_Exercises");
+            modelBuilder.Entity<tbl_Exercises>().ToTable("tbl_Exercisess");
         }
     }
     
