@@ -8,3 +8,4 @@ This application uses :
 - Entity Framework
 - Linq
 - Live Charts
+- Regex
