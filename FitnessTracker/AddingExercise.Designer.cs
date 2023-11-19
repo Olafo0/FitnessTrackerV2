@@ -32,19 +32,19 @@
             groupBox1 = new GroupBox();
             TypeOfExerCB = new ComboBox();
             groupBox2 = new GroupBox();
+            label6 = new Label();
             SessionDuration = new TextBox();
             label5 = new Label();
-            ExerciseDatePickDP = new DateTimePicker();
-            label4 = new Label();
             label3 = new Label();
             CaloriesBrnTXT = new TextBox();
             MuscleGroupCB = new ComboBox();
             label2 = new Label();
             label1 = new Label();
             ExerciseNameTXT = new TextBox();
+            ExerciseDatePickDP = new DateTimePicker();
+            label4 = new Label();
             AddActivityBTN = new Button();
             WarningLabel1 = new Label();
-            label6 = new Label();
             groupBox3 = new GroupBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -83,7 +83,7 @@
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(ExerciseNameTXT);
-            groupBox2.Font = new Font("Yu Gothic UI Semilight", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
+            groupBox2.Font = new Font("Yu Gothic UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox2.Location = new Point(314, 188);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(261, 194);
@@ -91,6 +91,16 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Exercise Details";
             groupBox2.Enter += groupBox2_Enter;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Yu Gothic UI Light", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
+            label6.Location = new Point(15, 165);
+            label6.Name = "label6";
+            label6.Size = new Size(61, 17);
+            label6.TabIndex = 6;
+            label6.Text = "* Minutes";
             // 
             // SessionDuration
             // 
@@ -102,36 +112,20 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(10, 145);
             label5.Name = "label5";
-            label5.Size = new Size(99, 17);
+            label5.Size = new Size(105, 17);
             label5.TabIndex = 4;
             label5.Text = "Session duration";
-            // 
-            // ExerciseDatePickDP
-            // 
-            ExerciseDatePickDP.Location = new Point(10, 35);
-            ExerciseDatePickDP.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
-            ExerciseDatePickDP.Name = "ExerciseDatePickDP";
-            ExerciseDatePickDP.Size = new Size(141, 23);
-            ExerciseDatePickDP.TabIndex = 2;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Underline, GraphicsUnit.Point);
-            label4.Location = new Point(10, 15);
-            label4.Name = "label4";
-            label4.Size = new Size(83, 17);
-            label4.TabIndex = 2;
-            label4.Text = "( Optional * )";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(10, 109);
             label3.Name = "label3";
-            label3.Size = new Size(95, 17);
+            label3.Size = new Size(101, 17);
             label3.TabIndex = 2;
             label3.Text = "Calories burned";
             // 
@@ -155,18 +149,20 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(10, 70);
             label2.Name = "label2";
-            label2.Size = new Size(85, 17);
+            label2.Size = new Size(90, 17);
             label2.TabIndex = 3;
             label2.Text = "Muscle Group";
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(10, 33);
             label1.Name = "label1";
-            label1.Size = new Size(91, 17);
+            label1.Size = new Size(94, 17);
             label1.TabIndex = 2;
             label1.Text = "Exercise Name";
             // 
@@ -176,6 +172,28 @@
             ExerciseNameTXT.Name = "ExerciseNameTXT";
             ExerciseNameTXT.Size = new Size(103, 25);
             ExerciseNameTXT.TabIndex = 2;
+            // 
+            // ExerciseDatePickDP
+            // 
+            ExerciseDatePickDP.CalendarTitleBackColor = SystemColors.ActiveBorder;
+            ExerciseDatePickDP.Cursor = Cursors.Hand;
+            ExerciseDatePickDP.Font = new Font("Arimo", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            ExerciseDatePickDP.Location = new Point(38, 35);
+            ExerciseDatePickDP.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
+            ExerciseDatePickDP.Name = "ExerciseDatePickDP";
+            ExerciseDatePickDP.RightToLeft = RightToLeft.No;
+            ExerciseDatePickDP.Size = new Size(167, 21);
+            ExerciseDatePickDP.TabIndex = 2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Underline, GraphicsUnit.Point);
+            label4.Location = new Point(38, 15);
+            label4.Name = "label4";
+            label4.Size = new Size(83, 17);
+            label4.TabIndex = 2;
+            label4.Text = "( Optional * )";
             // 
             // AddActivityBTN
             // 
@@ -200,21 +218,11 @@
             WarningLabel1.Text = "You have one or more field empty";
             WarningLabel1.Visible = false;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Yu Gothic UI Light", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
-            label6.Location = new Point(15, 165);
-            label6.Name = "label6";
-            label6.Size = new Size(61, 17);
-            label6.TabIndex = 6;
-            label6.Text = "* Minutes";
-            // 
             // groupBox3
             // 
             groupBox3.Controls.Add(ExerciseDatePickDP);
             groupBox3.Controls.Add(label4);
-            groupBox3.Font = new Font("Yu Gothic UI Semilight", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            groupBox3.Font = new Font("Yu Gothic UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox3.Location = new Point(314, 388);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(261, 71);

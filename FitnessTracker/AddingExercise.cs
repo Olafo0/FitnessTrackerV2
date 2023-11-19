@@ -53,9 +53,16 @@ namespace FitnessTracker
                 DateTime? DateOfExercise = ExerciseDatePickDP.Value.Date;
 
                 var Exercise = new tbl_Exercises { TypeOfExercise = TypeExercise, ExerciseName = ExeName, LengthOfExercise = Duration, Calories = CalBurned, AccountID = ID, DayOfExercise = DateOfExercise, MuscleGroup = ExeMuscleGroup };
-
                 _context.Add(Exercise);
                 _context.SaveChanges();
+
+                TypeOfExerCB.SelectedItem = null;
+                ExerciseNameTXT.Text = "";
+                MuscleGroupCB.SelectedItem = null;
+                CaloriesBrnTXT.Text = "";
+                SessionDuration.Text = "";
+                ExerciseDatePickDP.Text = null;
+
             }
         }
 

@@ -45,7 +45,7 @@ namespace FitnessTracker
 
         private void HomeBTN_Click(object sender, EventArgs e)
         {
-            loadform(new HomeForm());
+            loadform(new HomeForm(ImportLogin));
         }
 
         private void AddActivityBTN_Click(object sender, EventArgs e)
