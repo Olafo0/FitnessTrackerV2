@@ -63,7 +63,7 @@ namespace FitnessTracker
 
         private void MainHomePage_Load(object sender, EventArgs e)
         {
-
+            loadform(new HomeForm(ImportLogin));
         }
 
         private void Sidebar_Paint(object sender, PaintEventArgs e)

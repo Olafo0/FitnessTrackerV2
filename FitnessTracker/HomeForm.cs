@@ -26,9 +26,13 @@ namespace FitnessTracker
             LoggedUser = importLogin;
             InitializeComponent();
         }
+
         PieChart pieChart;
         private void HomeForm_Load(object sender, EventArgs e)
         {
+
+            DaySelector.SelectedIndex = 1;
+
             // Building off this at some point.... 
             //var eee = _context.Exercises.Where(x => x.DayOfExercise == DateTime.Now.Date).ToList();
             //DateTime DayOfYesterday = DateTime.Now.AddDays(-1);
@@ -43,11 +47,25 @@ namespace FitnessTracker
             pieChart = new PieChart
             {
                 Series = viewModel.Series,
-                Location = new System.Drawing.Point(0, 100),
+
+                Location = new System.Drawing.Point(20, 32),
                 Size = new System.Drawing.Size(150, 150),
                 Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
+
             };
-            Controls.Add(pieChart);
+            panel1.Controls.Add(pieChart);
+
+            //pieChart1 = new PieChart
+            //{
+            //    Series = viewModel.Series,
+
+            //    Location = new System.Drawing.Point(0, 100),
+            //    Size = new System.Drawing.Size(150, 150),
+            //    Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
+
+            //};
+            //Controls.Add(pieChart1);
+
         }
     }
 }
