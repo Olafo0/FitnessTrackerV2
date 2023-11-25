@@ -55,6 +55,7 @@ namespace FitnessTracker
 
         private void MyProfileBTN_Click(object sender, EventArgs e)
         {
+            loadform(new MyProfile(ImportLogin.AccountID));
         }
 
         private void AboutBTN_Click(object sender, EventArgs e)

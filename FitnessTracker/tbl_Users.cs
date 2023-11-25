@@ -19,5 +19,7 @@ namespace FitnessTracker
         public string? LastName { get; set;}
         public int Age { get; set; }
         public string? Gender { get; set; }
+        public int? Calorie_Day_Burn_Goal { get; set; }
+        public int? Calorie_Week_Burn_Goal { get; set; }
     }
 }
