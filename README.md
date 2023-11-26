@@ -1,4 +1,4 @@
-# FitnessTrackerV2
+![image](https://github.com/Olafo0/FitnessTrackerV2/assets/89582698/e4f36b05-dade-4997-a9da-8fbe03145ded)# FitnessTrackerV2
 A Fitness Application which allows you to track your progress.
 
 My first ever big project.
@@ -9,3 +9,9 @@ This application uses :
 - Linq
 - Live Charts 2 (Beta)
 - Regex
+
+- Development photos
+- ![image](https://github.com/Olafo0/FitnessTrackerV2/assets/89582698/85e2623d-419e-4e4c-bd26-b90e812ba6fb)
+- ![image](https://github.com/Olafo0/FitnessTrackerV2/assets/89582698/8d376f39-5eef-4582-b437-5fde2171829e)
+
+
