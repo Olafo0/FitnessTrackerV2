@@ -261,6 +261,11 @@ namespace FitnessTracker
             var viewModel = new CaloriesViewModel(LoggedUser.AccountID, int.Parse(DaySelector.Text));
             if (viewModel.CountOfCalories() <= 0)
             {
+                panel1.Controls.Remove(pieChart);
+                panel1.Controls.Remove(CalorieGauge);
+                panel1.Controls.Remove(MuscleGroupPieChart);
+                panel1.Controls.Remove(ActMinutesLineChart);
+
                 CaloriesBurnedLB.Text = "No Data\nProvided";
                 CaloriesBurnedLB.Font = new Font("Segoe UI", 14);
                 CaloriesBurnedLB.Location = new(220, 65);
@@ -293,6 +298,7 @@ namespace FitnessTracker
                 AddAcLB.Visible = false;
                 MGULB.Visible = false;
                 TOE2LB.Visible = false;
+                LineGraphLB.Visible = false;
                 DayLB.Visible = true;
 
                 CaloriesBurnedLB.Location = new(232, 199);

@@ -30,10 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
+            AddAcLB = new Label();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
             LineGraphLB = new Label();
             DayLB = new Label();
             label5 = new Label();
-            AddAcLB = new Label();
             label4 = new Label();
             TOE2LB = new Label();
             MGULB = new Label();
@@ -44,6 +47,7 @@
             label1 = new Label();
             label2 = new Label();
             panel2 = new Panel();
+            pictureBox5 = new PictureBox();
             pictureBox1 = new PictureBox();
             label7 = new Label();
             label6 = new Label();
@@ -52,15 +56,13 @@
             DailyCalorieLB = new Label();
             TodaySummaryLB = new Label();
             LoginASLB = new Label();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -83,6 +85,49 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(870, 255);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
+            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox4.Location = new Point(530, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(11, 255);
+            pictureBox4.TabIndex = 13;
+            pictureBox4.TabStop = false;
+            // 
+            // AddAcLB
+            // 
+            AddAcLB.AutoSize = true;
+            AddAcLB.BackColor = Color.Transparent;
+            AddAcLB.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            AddAcLB.ForeColor = Color.DarkRed;
+            AddAcLB.Location = new Point(0, 230);
+            AddAcLB.Name = "AddAcLB";
+            AddAcLB.Size = new Size(500, 25);
+            AddAcLB.TabIndex = 8;
+            AddAcLB.Text = "Add activities in-order to start reviewing PERFORMANCE";
+            AddAcLB.Visible = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Location = new Point(348, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(11, 261);
+            pictureBox3.TabIndex = 12;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(182, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(11, 261);
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
             // 
             // LineGraphLB
             // 
@@ -114,19 +159,6 @@
             label5.Size = new Size(124, 17);
             label5.TabIndex = 9;
             label5.Text = "Minutes worked out";
-            // 
-            // AddAcLB
-            // 
-            AddAcLB.AutoSize = true;
-            AddAcLB.BackColor = Color.Transparent;
-            AddAcLB.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            AddAcLB.ForeColor = Color.DarkOliveGreen;
-            AddAcLB.Location = new Point(0, 230);
-            AddAcLB.Name = "AddAcLB";
-            AddAcLB.Size = new Size(500, 25);
-            AddAcLB.TabIndex = 8;
-            AddAcLB.Text = "Add activities in-order to start reviewing PERFORMANCE";
-            AddAcLB.Visible = false;
             // 
             // label4
             // 
@@ -224,6 +256,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlDarkDark;
+            panel2.Controls.Add(pictureBox5);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
@@ -235,11 +268,21 @@
             panel2.Size = new Size(869, 207);
             panel2.TabIndex = 3;
             // 
+            // pictureBox5
+            // 
+            pictureBox5.BackgroundImage = (Image)resources.GetObject("pictureBox5.BackgroundImage");
+            pictureBox5.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox5.Location = new Point(348, 0);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(11, 207);
+            pictureBox5.TabIndex = 6;
+            pictureBox5.TabStop = false;
+            // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(179, 0);
+            pictureBox1.Location = new Point(182, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(11, 207);
             pictureBox1.TabIndex = 5;
@@ -318,36 +361,6 @@
             LoginASLB.TabIndex = 5;
             LoginASLB.Text = "Logged in as ";
             // 
-            // pictureBox2
-            // 
-            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
-            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Location = new Point(182, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(11, 261);
-            pictureBox2.TabIndex = 6;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
-            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox3.Location = new Point(348, 0);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(11, 261);
-            pictureBox3.TabIndex = 12;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
-            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox4.Location = new Point(530, 0);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(11, 255);
-            pictureBox4.TabIndex = 13;
-            pictureBox4.TabStop = false;
-            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -368,12 +381,13 @@
             Load += HomeForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -406,5 +420,6 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
+        private PictureBox pictureBox5;
     }
 }
