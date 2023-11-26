@@ -1,4 +1,3 @@
-![image](https://github.com/Olafo0/FitnessTrackerV2/assets/89582698/e4f36b05-dade-4997-a9da-8fbe03145ded)# FitnessTrackerV2
 A Fitness Application which allows you to track your progress.
 
 My first ever big project.
