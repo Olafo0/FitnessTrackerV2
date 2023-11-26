@@ -17,7 +17,7 @@ namespace FitnessTracker
         public int AccountID { get; set; }
         public string? TypeOfExercise { get; set; }
         public string? ExerciseName { get; set;}
-        public int? LengthOfExercise { get; set; }
+        public int LengthOfExercise { get; set; }
         public int Calories { get; set; }
         public string? MuscleGroup { get; set; }
         public DateTime? DayOfExercise { get; set; }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LiveChartsCore;
+using LiveChartsCore.Defaults;
 using System.Collections.Generic;
 using LiveChartsCore.SkiaSharpView.Extensions;
 using LiveChartsCore.SkiaSharpView;
@@ -14,6 +15,8 @@ using Microsoft.Identity.Client;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.EntityFrameworkCore;
+using GalaSoft.MvvmLight;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace FitnessTracker
 {
@@ -21,15 +24,15 @@ namespace FitnessTracker
     {
         UserDb _context = new UserDb();
 
-        private int accountID;
-        private int DaysToRemove;
+        private int? accountID;
+        private int? DaysToRemove;
         public int CardioCount;
         public int StrengthCount;
 
         public IEnumerable<ISeries> Series { get; set; }
 
         // Viewmodel for the 'Exercise type' 
-        public ViewModel(int accountID, int days)
+        public ViewModel(int? accountID, int? days)
         {
             this.accountID = accountID;
             this.DaysToRemove = days + 1;
@@ -288,7 +291,7 @@ namespace FitnessTracker
                     else
                     {
                         // Still dark red
-                        return "IndianRed";
+                        return "Red";
                     }
                 }
                 else
@@ -333,13 +336,13 @@ namespace FitnessTracker
                     else
                     {
                         // Still dark red
-                        return "DarkRed";
+                        return "Red";
                     }
                 }
                 else
                 {
                     // Bad performance is rewarded with DARK RED
-                    return "DarkRed;";
+                    return "DarkRed";
                 }
             }
             else if (DaysToRemove == 15)
@@ -378,7 +381,7 @@ namespace FitnessTracker
                     else
                     {
                         // Still dark red
-                        return "DarkRed";
+                        return "Red";
                     }
                 }
                 else
@@ -390,6 +393,136 @@ namespace FitnessTracker
             return null;
         }
     }
+
+
+    public class CaloriesViewModel_Daily
+    {
+        UserDb _context = new UserDb();
+
+        private int accountID;
+        private int DaysToRemove;
+
+
+
+        public IEnumerable<ISeries> Series { get; set; }
+
+        public CaloriesViewModel_Daily(int accountID)
+        {
+            this.accountID = accountID;
+            int CaloriesBurned = CountOfCalories();
+            var CurrentUser = _context.Users.Where(x => x.AccountID == accountID).Single();
+
+            Series = GaugeGenerator.BuildSolidGauge(
+                new GaugeItem(CaloriesBurned,
+                series =>
+                {
+                    series.MaxRadialColumnWidth = 10;
+                    series.DataLabelsSize = 25;
+                    series.Name = "Calories Burned:";
+                    series.IsHoverable = true;
+
+                    // Changes the colour of your Total calories Gaunge depending on your performance during that day
+                    if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 25) / 100))
+                    {
+                        if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 40) / 100))
+                        {
+                            if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 75) / 100))
+                            {
+                                if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 100) / 100))
+                                {
+                                    if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 115) / 100))
+                                    {
+                                        // You're a demon
+                                        series.Fill = new SolidColorPaint(SKColors.Black);
+                                    }
+                                    else
+                                    {
+                                        series.Fill = new SolidColorPaint(SKColors.Green);
+                                    }
+                                }
+                                else
+                                {
+                                    // You passed for now
+                                    series.Fill = new SolidColorPaint(SKColors.Yellow);
+                                }
+                            }
+                            else
+                            {
+                                // You are rewared with a yellow
+                                series.Fill = new SolidColorPaint(SKColors.LightYellow);
+                            }
+                        }
+                        else
+                        {
+                            // Still dark red
+                            series.Fill = new SolidColorPaint(SKColors.IndianRed);
+                        }
+                    }
+                    else
+                    {
+                        // Bad performance is rewarded with DARK RED
+                        series.Fill = new SolidColorPaint(SKColors.DarkRed);
+                    }
+                }));
+        }
+
+        public int CountOfCalories()
+        {
+            int CaloriesBurned = 0;
+
+            var CurrentAccountExercise = _context.Exercises.Where(x => x.AccountID == accountID).ToList();
+            var ExerciseThatDay = CurrentAccountExercise.Where(x => x.DayOfExercise == DateTime.Now.Date).ToList();
+            int tempCaloriesBurned = ExerciseThatDay.Sum(x => x.Calories);
+            CaloriesBurned += tempCaloriesBurned;
+
+            return CaloriesBurned;
+        }
+
+        public string ColourUsed()
+        {
+            var CurrentUser = _context.Users.Where(x => x.AccountID == accountID).Single();
+            int CaloriesBurned = CountOfCalories();
+   
+            if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 25) / 100))
+            {
+                if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 40) / 100))
+                {
+                    if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 75) / 100))
+                    {
+                        if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 100) / 100))
+                        {
+                            if (CaloriesBurned > ((CurrentUser.Calorie_Day_Burn_Goal * 115) / 100))
+                            {
+                                // You're a demon
+                                return "Black";
+                            }
+                            else
+                            {
+                                return "Green";
+                            }
+                        }
+                        else
+                        {
+                            // You passed for now
+                            return "Yellow";
+                        }
+                    }
+                    else
+                    {
+                        // You are rewared with a yellow
+                        return "LightYellow";
+                    }
+                }
+                else
+                {
+                    // Still dark red
+                    return "IndianRed";
+                }
+            }
+            return "DarkRed";
+        }
+    }
+
     public class MuscleGroupViewModel
     {
         UserDb _context = new UserDb();
@@ -546,8 +679,63 @@ namespace FitnessTracker
             }
             return LegCount;
         }
+    }
+    public class MinutesActViewModel : ObservableObject
+    {
+        UserDb _context = new UserDb();
 
+        private int AccountID;
+        private int DaysToRemove;
+        private List<int> MinutesOfExercise;
 
+        public ISeries[] Series { get; set; }
 
+        public MinutesActViewModel(int accountID, int days)
+        {
+            AccountID = accountID;
+            DaysToRemove = days;
+            MinutesOfExercise = CountOfMinutes();
+
+            Series = new[]
+            {
+                new LineSeries<ObservablePoint>
+                {
+                    Values = GenerateTheData(),
+                    Name = "Active Minutes:",
+                }
+
+            };
+        }
+
+        public ObservablePoint[] GenerateTheData()
+        {
+            ObservablePoint[] dataPoint = new ObservablePoint[DaysToRemove];
+
+            for (int i = 0; i < DaysToRemove; i++)
+            {
+                dataPoint[i] = new ObservablePoint(int.Parse(DateTime.Now.AddDays(-i).Date.ToString("dd")), MinutesOfExercise[i]);
+
+            }
+            return dataPoint;
+        }
+
+        public List<int> CountOfMinutes()
+        {
+            List<int> MinutesList = new List<int>();
+          
+            var CurrentAccountExercise = _context.Exercises.Where(x => x.AccountID == AccountID).ToList();
+            for (int i = 0; i >= -DaysToRemove; i--)
+            { 
+                var MinutesThatDay = CurrentAccountExercise.Where(x => x.DayOfExercise == DateTime.Now.AddDays(i).Date).ToList();
+                var tempTotal = MinutesThatDay.Sum(x => x.LengthOfExercise);
+                MinutesList.Add(tempTotal);
+            }
+            return MinutesList;
+        }
     }
 }
+
+            
+
+
+        

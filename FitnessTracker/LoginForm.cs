@@ -24,12 +24,15 @@ namespace FitnessTracker
         {
             var _context = new UserDb();
             string UserPassword = PasswordTXT.Text;
+            string UserUsername = UsernameTXT.Text;
             try
             {
                 var Login = _context.Users.Where(x => x.Username_ == UsernameTXT.Text & x.Password_ == UserPassword).First();
-                if (Login.Password_ == UserPassword)
+                if (Login.Password_ == UserPassword && Login.Username_ == UserUsername) 
                 {
-                    Hide();
+                    UsernameTXT.Text = "";
+                    PasswordTXT.Text = "";
+                    
                     MainHomePage MainPageLoad = new MainHomePage(Login);
                     MainPageLoad.Show();
                 }

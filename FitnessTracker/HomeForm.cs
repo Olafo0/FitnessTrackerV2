@@ -30,7 +30,9 @@ namespace FitnessTracker
 
         PieChart pieChart;
         PieChart CalorieGauge;
+        PieChart CalorieGauge_Daily;
         PieChart MuscleGroupPieChart;
+        CartesianChart ActMinutesLineChart;
 
         public void ExerciseTypePieChart(int days)
         {
@@ -47,7 +49,7 @@ namespace FitnessTracker
                 Series = viewModel.Series,
                 TooltipTextSize = 16,
 
-                Location = new System.Drawing.Point(20, 32),
+                Location = new System.Drawing.Point(20, 52),
                 Size = new System.Drawing.Size(150, 150),
                 Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
             };
@@ -65,13 +67,15 @@ namespace FitnessTracker
 
             var viewModel = new CaloriesViewModel(LoggedUser.AccountID, days);
 
+            int CaloriesBurned__ = viewModel.CountOfCalories();
+
             CalorieGauge = new PieChart
             {
                 Series = viewModel.Series,
                 InitialRotation = -90,
 
 
-                Location = new System.Drawing.Point(120, 32),
+                Location = new System.Drawing.Point(155, 52),
                 Size = new System.Drawing.Size(220, 150),
                 Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
 
@@ -83,22 +87,21 @@ namespace FitnessTracker
             {
 
                 string ColourForLabel = viewModel.ColourUsed();
-                CaloriesBurnedLB.Text = $"{viewModel.CountOfCalories()} / {LoggedUser.Calorie_Day_Burn_Goal * 3}";
+                CaloriesBurnedLB.Text = $"{CaloriesBurned__} / {LoggedUser.Calorie_Day_Burn_Goal * 3}";
                 CaloriesBurnedLB.ForeColor = ColorTranslator.FromHtml(ColourForLabel);
             }
             else if (days == 7)
             {
                 string ColourForLabel = viewModel.ColourUsed();
-                CaloriesBurnedLB.Text = $"{viewModel.CountOfCalories()} / {LoggedUser.Calorie_Week_Burn_Goal}";
+                CaloriesBurnedLB.Text = $"{CaloriesBurned__} / {LoggedUser.Calorie_Week_Burn_Goal}";
                 CaloriesBurnedLB.ForeColor = ColorTranslator.FromHtml(ColourForLabel);
             }
             else if (days == 14)
             {
                 string ColourForLabel = viewModel.ColourUsed();
-                CaloriesBurnedLB.Text = $"{viewModel.CountOfCalories()} / {LoggedUser.Calorie_Week_Burn_Goal * 2}";
+                CaloriesBurnedLB.Text = $"{CaloriesBurned__} / {LoggedUser.Calorie_Week_Burn_Goal * 2}";
                 CaloriesBurnedLB.ForeColor = ColorTranslator.FromHtml(ColourForLabel);
             }
-
         }
         public void MuslceGroupPieChart(int days)
         {
@@ -117,18 +120,132 @@ namespace FitnessTracker
                 InitialRotation = -90,
                 TooltipTextSize = 12,
 
-                Location = new System.Drawing.Point(300, 32),
+                Location = new System.Drawing.Point(334, 52),
                 Size = new System.Drawing.Size(220, 150),
                 Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
             };
             panel1.Controls.Add(MuscleGroupPieChart);
+        }
 
+        public void MinutesThroughWeek(int days)
+        {
+            if (panel1.Controls.Contains(ActMinutesLineChart))
+            {
+                panel1.Controls.Remove(ActMinutesLineChart);
+            }
+
+            Size = new System.Drawing.Size(50, 50);
+
+            var viewModel = new MinutesActViewModel(LoggedUser.AccountID, days);
+            ActMinutesLineChart = new CartesianChart
+            {
+                Series = viewModel.Series,
+                TooltipTextSize = 12,
+
+                Location = new System.Drawing.Point(550, 0),
+                //500, 0
+                Size = new System.Drawing.Size(270, 250),
+                // 370 250
+                Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
+            };
+
+            panel1.Controls.Add(ActMinutesLineChart);
+        }
+
+        public void CaloriesTotalGauge_Daily()
+        {
+            if (panel2.Contains(CalorieGauge_Daily))
+            {
+                panel2.Controls.Remove(CalorieGauge_Daily);
+            }
+
+            Size = new System.Drawing.Size(50, 50);
+
+            var viewModel = new CaloriesViewModel_Daily(LoggedUser.AccountID);
+
+            int CaloriesBurned__ = viewModel.CountOfCalories();
+
+            if (CaloriesBurned__ <= 0)
+            {
+                DailyCalWarningLB.Text = "No Data\nprovided\ntoday";
+                DailyCalWarningLB.Font = new Font("Segoe UI", 14);
+                DailyCalWarningLB.Location = new(43, 45);
+                DailyCalWarningLB.ForeColor = Color.IndianRed;
+                DailyCalWarningLB.Visible = true;
+                DailyCalorieLB.Text = $"{CaloriesBurned__} / {LoggedUser.Calorie_Day_Burn_Goal}";
+                DailyCalorieLB.Visible = true;
+            }
+            else
+            {
+                CalorieGauge_Daily = new PieChart
+                {
+                    Series = viewModel.Series,
+                    InitialRotation = -90,
+                    TooltipTextSize = 12,
+
+                    Location = new System.Drawing.Point(1, 32),
+                    Size = new System.Drawing.Size(170, 100),
+                    Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
+                };
+
+                panel2.Controls.Add(CalorieGauge_Daily);
+                string ColourForLabel = viewModel.ColourUsed();
+                DailyCalorieLB.Text = $"{CaloriesBurned__} / {LoggedUser.Calorie_Day_Burn_Goal}";
+                DailyCalorieLB.Location = new(21, 15);
+                DailyCalorieLB.ForeColor = ColorTranslator.FromHtml(ColourForLabel);
+                DailyCalorieLB.Visible = true;
+
+                if (CaloriesBurned__ >= (LoggedUser.Calorie_Day_Burn_Goal * 115 / 100))
+                {
+                    CalorieDailyFeedbackLB.Text = "You're a demon! >:)\nkeep going! ";
+
+                    CalorieDailyFeedbackLB.Visible = true;
+                }
+                else if (CaloriesBurned__ >= (LoggedUser.Calorie_Day_Burn_Goal * 100 / 100))
+                {
+                    CalorieDailyFeedbackLB.Text = "You've reached your\ndaily goal!";
+
+                    CalorieDailyFeedbackLB.Visible = true;
+                }
+                else if (CaloriesBurned__ >= (LoggedUser.Calorie_Day_Burn_Goal * 75 / 100))
+                {
+                    CalorieDailyFeedbackLB.Text = "You're nearly there\nkeep going!";
+
+                    CalorieDailyFeedbackLB.Visible = true;
+                }
+                else if (CaloriesBurned__ >= (LoggedUser.Calorie_Day_Burn_Goal * 40 / 100))
+                {
+                    CalorieDailyFeedbackLB.Text = "I was expecting\nmore from you";
+
+                    CalorieDailyFeedbackLB.Visible = true;
+                }
+                else if (CaloriesBurned__ >= (LoggedUser.Calorie_Day_Burn_Goal * 25 / 100))
+                {
+                    CalorieDailyFeedbackLB.Text = "Are you even trying?";
+
+                    CalorieDailyFeedbackLB.Visible = true;
+                }
+                else if (CaloriesBurned__ < (LoggedUser.Calorie_Day_Burn_Goal * 25 / 100))
+                {
+                    CalorieDailyFeedbackLB.Text = "Don't make me laugh\nYou've only just\nbegan.";
+
+                    CalorieDailyFeedbackLB.Visible = true;
+                }
+
+
+            }
         }
 
         private void HomeForm_Load(object sender, EventArgs e)
         {
-
+            LoginASLB.Text = $"Logged in as {LoggedUser.Username_}";
+            TodaySummaryLB.Text = $"{DateTime.Now.Date.ToString("dd/MM/yyyy")} Summary :";
             DaySelector.SelectedIndex = 1;
+
+            // Initiating methods
+            CaloriesTotalGauge_Daily();
+
+
 
             // Building off this at some point.... 
             //var eee = _context.Exercises.Where(x => x.DayOfExercise == DateTime.Now.Date).ToList();
@@ -140,9 +257,56 @@ namespace FitnessTracker
 
         private void DaySelector_SelectedValueChanged(object sender, EventArgs e)
         {
-            ExerciseTypePieChart(int.Parse(DaySelector.Text));
-            CaloriesTotalGauge(int.Parse(DaySelector.Text));
-            MuslceGroupPieChart(int.Parse(DaySelector.Text));
+
+            var viewModel = new CaloriesViewModel(LoggedUser.AccountID, int.Parse(DaySelector.Text));
+            if (viewModel.CountOfCalories() <= 0)
+            {
+                CaloriesBurnedLB.Text = "No Data\nProvided";
+                CaloriesBurnedLB.Font = new Font("Segoe UI", 14);
+                CaloriesBurnedLB.Location = new(220, 65);
+                CaloriesBurnedLB.ForeColor = Color.IndianRed;
+
+
+                MGULB.Text = "No Data\nProvided";
+                MGULB.Font = new Font("Segoe UI", 14);
+                MGULB.Location = new(398, 65);
+                MGULB.ForeColor = Color.IndianRed;
+                MGULB.Visible = true;
+
+
+                TOE2LB.Text = "No Data\nProvided";
+                TOE2LB.Font = new Font("Segoe UI", 14);
+                TOE2LB.Location = new(58, 65);
+                TOE2LB.ForeColor = Color.IndianRed;
+                TOE2LB.Visible = true;
+
+                AddAcLB.Visible = true;
+
+                LineGraphLB.Text = "No Data\nProvided";
+                LineGraphLB.Font = new Font("Segoe UI", 14);
+                LineGraphLB.Location = new(638, 65);
+                LineGraphLB.ForeColor = Color.IndianRed;
+                LineGraphLB.Visible = true;
+            }
+            else
+            {
+                AddAcLB.Visible = false;
+                MGULB.Visible = false;
+                TOE2LB.Visible = false;
+                DayLB.Visible = true;
+
+                CaloriesBurnedLB.Location = new(232, 199);
+                CaloriesBurnedLB.Font = new Font("Segoe UI", 9);
+                ExerciseTypePieChart(int.Parse(DaySelector.Text));
+                CaloriesTotalGauge(int.Parse(DaySelector.Text));
+                MuslceGroupPieChart(int.Parse(DaySelector.Text));
+                MinutesThroughWeek(int.Parse(DaySelector.Text));
+            }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
