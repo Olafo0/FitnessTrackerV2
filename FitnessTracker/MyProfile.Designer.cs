@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             CurrentGoalsGP = new GroupBox();
+            RemoveGoal = new Button();
             CaloriesDayLB = new Label();
             CaloriesWeekLB = new Label();
             label3 = new Label();
@@ -45,11 +46,19 @@
             label5 = new Label();
             DailyCaloriesTB = new TextBox();
             WeekOrDayCB = new ComboBox();
-            RemoveGoal = new Button();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            CurrentPasswordTB = new TextBox();
+            ChangePasswordTB = new TextBox();
+            label7 = new Label();
+            label8 = new Label();
+            IncPassLB = new Label();
+            ChangePasswordBTN = new Button();
             CurrentGoalsGP.SuspendLayout();
             SetUpGoalGB.SuspendLayout();
             WeeklyPanel.SuspendLayout();
             DailyPanel.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // CurrentGoalsGP
@@ -61,12 +70,23 @@
             CurrentGoalsGP.Controls.Add(label2);
             CurrentGoalsGP.Controls.Add(label1);
             CurrentGoalsGP.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            CurrentGoalsGP.Location = new Point(369, 12);
+            CurrentGoalsGP.Location = new Point(369, 334);
             CurrentGoalsGP.Name = "CurrentGoalsGP";
             CurrentGoalsGP.Size = new Size(529, 261);
             CurrentGoalsGP.TabIndex = 0;
             CurrentGoalsGP.TabStop = false;
             CurrentGoalsGP.Text = "Current Goals";
+            // 
+            // RemoveGoal
+            // 
+            RemoveGoal.FlatStyle = FlatStyle.Flat;
+            RemoveGoal.Location = new Point(16, 214);
+            RemoveGoal.Name = "RemoveGoal";
+            RemoveGoal.Size = new Size(107, 29);
+            RemoveGoal.TabIndex = 5;
+            RemoveGoal.Text = "Remove Goal";
+            RemoveGoal.UseVisualStyleBackColor = true;
+            RemoveGoal.Click += RemoveGoal_Click;
             // 
             // CaloriesDayLB
             // 
@@ -119,7 +139,7 @@
             SetUpGoalGB.Controls.Add(WeeklyPanel);
             SetUpGoalGB.Controls.Add(DailyPanel);
             SetUpGoalGB.Controls.Add(WeekOrDayCB);
-            SetUpGoalGB.Location = new Point(12, 12);
+            SetUpGoalGB.Location = new Point(12, 334);
             SetUpGoalGB.Name = "SetUpGoalGB";
             SetUpGoalGB.Size = new Size(300, 261);
             SetUpGoalGB.TabIndex = 2;
@@ -223,22 +243,91 @@
             WeekOrDayCB.TabIndex = 0;
             WeekOrDayCB.SelectedValueChanged += WeekOrDayCB_SelectedValueChanged;
             // 
-            // RemoveGoal
+            // groupBox1
             // 
-            RemoveGoal.FlatStyle = FlatStyle.Flat;
-            RemoveGoal.Location = new Point(16, 214);
-            RemoveGoal.Name = "RemoveGoal";
-            RemoveGoal.Size = new Size(107, 29);
-            RemoveGoal.TabIndex = 5;
-            RemoveGoal.Text = "Remove Goal";
-            RemoveGoal.UseVisualStyleBackColor = true;
-            RemoveGoal.Click += RemoveGoal_Click;
+            groupBox1.Location = new Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(300, 316);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Details";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(ChangePasswordBTN);
+            groupBox2.Controls.Add(IncPassLB);
+            groupBox2.Controls.Add(label8);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(ChangePasswordTB);
+            groupBox2.Controls.Add(CurrentPasswordTB);
+            groupBox2.Location = new Point(574, 12);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(324, 316);
+            groupBox2.TabIndex = 4;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Change password";
+            // 
+            // CurrentPasswordTB
+            // 
+            CurrentPasswordTB.Location = new Point(106, 111);
+            CurrentPasswordTB.Name = "CurrentPasswordTB";
+            CurrentPasswordTB.Size = new Size(100, 23);
+            CurrentPasswordTB.TabIndex = 0;
+            // 
+            // ChangePasswordTB
+            // 
+            ChangePasswordTB.Location = new Point(106, 227);
+            ChangePasswordTB.Name = "ChangePasswordTB";
+            ChangePasswordTB.Size = new Size(100, 23);
+            ChangePasswordTB.TabIndex = 1;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(61, 73);
+            label7.Name = "label7";
+            label7.Size = new Size(204, 15);
+            label7.TabIndex = 2;
+            label7.Text = "Please enter in your current password";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(90, 209);
+            label8.Name = "label8";
+            label8.Size = new Size(134, 15);
+            label8.TabIndex = 3;
+            label8.Text = "Enter in a new password";
+            // 
+            // IncPassLB
+            // 
+            IncPassLB.AutoSize = true;
+            IncPassLB.BackColor = Color.Transparent;
+            IncPassLB.ForeColor = Color.DarkRed;
+            IncPassLB.Location = new Point(84, 93);
+            IncPassLB.Name = "IncPassLB";
+            IncPassLB.Size = new Size(150, 15);
+            IncPassLB.TabIndex = 4;
+            IncPassLB.Text = "Incorrect password entered";
+            IncPassLB.Visible = false;
+            // 
+            // ChangePasswordBTN
+            // 
+            ChangePasswordBTN.FlatStyle = FlatStyle.Popup;
+            ChangePasswordBTN.Location = new Point(96, 266);
+            ChangePasswordBTN.Name = "ChangePasswordBTN";
+            ChangePasswordBTN.Size = new Size(126, 23);
+            ChangePasswordBTN.TabIndex = 5;
+            ChangePasswordBTN.Text = "Change password";
+            ChangePasswordBTN.UseVisualStyleBackColor = true;
             // 
             // MyProfile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 607);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(SetUpGoalGB);
             Controls.Add(CurrentGoalsGP);
             Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -254,6 +343,8 @@
             WeeklyPanel.PerformLayout();
             DailyPanel.ResumeLayout(false);
             DailyPanel.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -277,5 +368,13 @@
         private TextBox DailyCaloriesTB;
         private Label label6;
         private Button RemoveGoal;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private Label label8;
+        private Label label7;
+        private TextBox ChangePasswordTB;
+        private TextBox CurrentPasswordTB;
+        private Button ChangePasswordBTN;
+        private Label IncPassLB;
     }
 }

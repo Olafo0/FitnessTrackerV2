@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,6 @@ namespace FitnessTracker
             ImportLogin = login;
             InitializeComponent();
         }
-
-
         public void loadform(object Form)
         {
             if (this.MainPanel.Controls.Count > 0)
@@ -33,11 +32,6 @@ namespace FitnessTracker
             this.MainPanel.Tag = f;
             f.Show();
         }
-
-
-
-
-
 
         private void MenuBTN_Click(object sender, EventArgs e)
         {
@@ -60,6 +54,11 @@ namespace FitnessTracker
 
         private void AboutBTN_Click(object sender, EventArgs e)
         {
+            var ps = new ProcessStartInfo("https://github.com/Olafo0/FitnessTrackerV2")
+            {
+                UseShellExecute = true,
+            };
+            Process.Start(ps);
         }
 
         private void MainHomePage_Load(object sender, EventArgs e)

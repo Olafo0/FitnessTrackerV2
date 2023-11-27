@@ -25,6 +25,6 @@ namespace FitnessTracker
             modelBuilder.Entity<tbl_Exercises>().ToTable("tbl_Exercisess");
         }
     }
-    
+    // What I could do better next time is make functions within this class inorder to save time and make the code more efficent.
 
 }
