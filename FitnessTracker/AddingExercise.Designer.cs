@@ -54,7 +54,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(TypeOfExerCB);
-            groupBox1.Font = new Font("Yu Gothic UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            groupBox1.Font = new Font("Yu Gothic UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(314, 83);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(261, 82);
@@ -83,7 +83,7 @@
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(ExerciseNameTXT);
-            groupBox2.Font = new Font("Yu Gothic UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            groupBox2.Font = new Font("Yu Gothic UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.Location = new Point(314, 188);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(261, 194);

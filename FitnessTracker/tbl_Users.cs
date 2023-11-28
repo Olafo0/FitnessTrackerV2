@@ -21,5 +21,6 @@ namespace FitnessTracker
         public string? Gender { get; set; }
         public int? Calorie_Day_Burn_Goal { get; set; }
         public int? Calorie_Week_Burn_Goal { get; set; }
+        public string? Email { get; set; } 
     }
 }

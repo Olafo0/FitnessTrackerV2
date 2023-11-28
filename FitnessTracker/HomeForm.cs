@@ -3,6 +3,7 @@ using LiveChartsCore;
 using LiveChartsCore.Kernel;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.WinForms;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace FitnessTracker
         tbl_Users LoggedUser;
         UserDb _context = new UserDb();
 
+        Boolean ExerciseDoneToday = false;
 
         public HomeForm(tbl_Users importLogin)
         {
@@ -32,6 +34,8 @@ namespace FitnessTracker
         PieChart CalorieGauge;
         PieChart CalorieGauge_Daily;
         PieChart MuscleGroupPieChart;
+        PieChart ExerciseType_Day;
+        PieChart MinutesActiveGauge_Daily;
         CartesianChart ActMinutesLineChart;
 
         public void ExerciseTypePieChart(int days)
@@ -165,6 +169,8 @@ namespace FitnessTracker
 
             int CaloriesBurned__ = viewModel.CountOfCalories();
 
+
+
             if (CaloriesBurned__ <= 0)
             {
                 DailyCalWarningLB.Text = "No Data\nprovided\ntoday";
@@ -177,6 +183,8 @@ namespace FitnessTracker
             }
             else
             {
+                DailyCalWarningLB.Visible = false;
+                ExerciseDoneToday = true;
                 CalorieGauge_Daily = new PieChart
                 {
                     Series = viewModel.Series,
@@ -231,11 +239,61 @@ namespace FitnessTracker
 
                     CalorieDailyFeedbackLB.Visible = true;
                 }
-
-
             }
         }
 
+        public void MinutesWorkedOutGauge()
+        {
+            Size = new System.Drawing.Size(50, 50);
+            var viewModel = new MinutesWorkedOutViewModel_Daily(LoggedUser.AccountID);
+
+
+            if (ExerciseDoneToday == false)
+            {
+                DailyMinWarningLB.Text = "No Data\nprovided\ntoday";
+                DailyMinWarningLB.Font = new Font("Segoe UI", 14);
+                DailyMinWarningLB.Location = new(233, 45);
+                DailyMinWarningLB.ForeColor = Color.IndianRed;
+                DailyMinWarningLB.Visible = true;
+                label9.Visible = false;
+            }
+            else
+            {
+                label9.Visible = true;
+                DailyMinWarningLB.Visible = false;
+                MinutesActiveGauge_Daily = new PieChart
+                {
+                    Series = viewModel.Series,
+                    InitialRotation = -90,
+                    TooltipTextSize = 12,
+
+                    Location = new System.Drawing.Point(190, 12),
+                    Size = new System.Drawing.Size(170, 100),
+                    Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
+                };
+
+                panel2.Controls.Add(MinutesActiveGauge_Daily);
+            }
+        }
+
+        public void ExerciseType_Daily()
+        {
+
+            Size = new System.Drawing.Size(50, 50);
+            var viewModel = new ExerciseType_Daily(LoggedUser.AccountID);
+
+            ExerciseType_Day = new PieChart
+            {
+                Series = viewModel.Series,
+                TooltipTextSize = 12,
+
+                Location = new System.Drawing.Point(190, 107),
+                Size = new System.Drawing.Size(170, 100),
+                Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
+            };
+
+            panel2.Controls.Add(ExerciseType_Day);
+        }
         private void HomeForm_Load(object sender, EventArgs e)
         {
             LoginASLB.Text = $"Logged in as {LoggedUser.Username_}";
@@ -244,8 +302,8 @@ namespace FitnessTracker
 
             // Initiating methods
             CaloriesTotalGauge_Daily();
-
-
+            MinutesWorkedOutGauge();
+            ExerciseType_Daily();
 
             // Building off this at some point.... 
             //var eee = _context.Exercises.Where(x => x.DayOfExercise == DateTime.Now.Date).ToList();
@@ -313,6 +371,20 @@ namespace FitnessTracker
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ACEFitnessBTN_Click(object sender, EventArgs e)
+        {
+            var ps = new ProcessStartInfo("https://www.acefitness.org/resources/everyone/exercise-library/")
+            {
+                UseShellExecute = true,
+            };
+            Process.Start(ps);
         }
     }
 }

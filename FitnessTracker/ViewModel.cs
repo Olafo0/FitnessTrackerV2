@@ -17,6 +17,8 @@ using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.EntityFrameworkCore;
 using GalaSoft.MvvmLight;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using LiveChartsCore.Measure;
+using OpenTK.Graphics.OpenGL;
 
 namespace FitnessTracker
 {
@@ -520,6 +522,82 @@ namespace FitnessTracker
                 }
             }
             return "DarkRed";
+        }
+    }
+
+
+    public class MinutesWorkedOutViewModel_Daily
+    {
+        UserDb _context = new UserDb();
+        private int AccountID;
+
+        public IEnumerable<ISeries> Series { get; set; }
+
+        public MinutesWorkedOutViewModel_Daily(int accountID)
+        {
+            this.AccountID = accountID;
+            int TotalMinutes = CountOfTotalMinutes(AccountID);
+
+
+            Series = GaugeGenerator.BuildSolidGauge(
+                new GaugeItem(TotalMinutes,
+                series =>
+                {
+                    series.MaxRadialColumnWidth = 10;
+                    series.DataLabelsSize = 25;
+                    series.Name = "Active Minutes";
+                    series.IsHoverable = true;
+                    series.Fill = new SolidColorPaint(SKColors.MediumPurple);
+                }));
+        }
+
+        public int CountOfTotalMinutes(int CurrentUser)
+        {
+            int TotalMinutes = 0;
+            var CurrentAccountExercise = _context.Exercises.Where(x => x.AccountID == CurrentUser).ToList();
+            var ExerciseThatDay = CurrentAccountExercise.Where(x => x.DayOfExercise == DateTime.Now.Date).ToList();
+            int tempTotalMinutes = ExerciseThatDay.Sum(x => x.LengthOfExercise);
+            TotalMinutes += tempTotalMinutes;
+
+            return TotalMinutes;
+        }
+
+    }
+    public class ExerciseType_Daily
+    {
+        UserDb _context = new UserDb();
+        private int AccountID;
+
+        public IEnumerable<ISeries> Series { get; set; }
+
+        public ExerciseType_Daily(int accountID)
+        {
+            this.AccountID = accountID;
+            int CardioCount = CountOfCardio(AccountID);
+            int StrengthCount = CountOfStrength(AccountID);
+
+            Series = new[]
+{
+                new PieSeries<int> { Values = new[] { CardioCount },Name = "Cardio",MaxRadialColumnWidth = 20},
+                new PieSeries<int> { Values = new[] { StrengthCount }, Name = "Strength",MaxRadialColumnWidth = 20},
+            };
+        }
+
+        public int CountOfCardio(int CurrentUser)
+        {
+            var CurrentAccountExercise = _context.Exercises.Where(x => x.AccountID == CurrentUser).ToList();
+            var ExerciseThatDay = CurrentAccountExercise.Where(x => x.DayOfExercise == DateTime.Now.Date).ToList();
+            int CardioCount = ExerciseThatDay.Where(x => x.TypeOfExercise == "Cardio").ToList().Count();
+
+            return CardioCount;
+        }
+        public int CountOfStrength(int CurrentUser)
+        {
+            var CurrentAccountExercise = _context.Exercises.Where(x => x.AccountID == CurrentUser).ToList();
+            var ExerciseThatDay = CurrentAccountExercise.Where(x => x.DayOfExercise == DateTime.Now.Date).ToList();
+            int StrengthCount = ExerciseThatDay.Where(x => x.TypeOfExercise == "Strength ").ToList().Count();
+
+            return StrengthCount;
         }
     }
 

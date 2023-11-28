@@ -47,6 +47,16 @@
             label1 = new Label();
             label2 = new Label();
             panel2 = new Panel();
+            groupBox1 = new GroupBox();
+            label11 = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            ACEFitnessBTN = new Button();
+            label10 = new Label();
+            label9 = new Label();
+            DailyMinWarningLB = new Label();
+            label8 = new Label();
             pictureBox5 = new PictureBox();
             pictureBox1 = new PictureBox();
             label7 = new Label();
@@ -61,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
+            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -132,9 +143,10 @@
             // LineGraphLB
             // 
             LineGraphLB.AutoSize = true;
+            LineGraphLB.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             LineGraphLB.Location = new Point(305, 175);
             LineGraphLB.Name = "LineGraphLB";
-            LineGraphLB.Size = new Size(37, 15);
+            LineGraphLB.Size = new Size(33, 13);
             LineGraphLB.TabIndex = 11;
             LineGraphLB.Text = "xxxx3";
             LineGraphLB.Visible = false;
@@ -173,9 +185,10 @@
             // TOE2LB
             // 
             TOE2LB.AutoSize = true;
+            TOE2LB.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             TOE2LB.Location = new Point(219, 175);
             TOE2LB.Name = "TOE2LB";
-            TOE2LB.Size = new Size(37, 15);
+            TOE2LB.Size = new Size(33, 13);
             TOE2LB.TabIndex = 6;
             TOE2LB.Text = "xxxx2";
             TOE2LB.Visible = false;
@@ -183,9 +196,10 @@
             // MGULB
             // 
             MGULB.AutoSize = true;
+            MGULB.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             MGULB.Location = new Point(262, 175);
             MGULB.Name = "MGULB";
-            MGULB.Size = new Size(37, 15);
+            MGULB.Size = new Size(33, 13);
             MGULB.TabIndex = 5;
             MGULB.Text = "xxxx1";
             MGULB.Visible = false;
@@ -193,9 +207,10 @@
             // CaloriesBurnedLB
             // 
             CaloriesBurnedLB.AutoSize = true;
+            CaloriesBurnedLB.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             CaloriesBurnedLB.Location = new Point(182, 175);
             CaloriesBurnedLB.Name = "CaloriesBurnedLB";
-            CaloriesBurnedLB.Size = new Size(31, 15);
+            CaloriesBurnedLB.Size = new Size(27, 13);
             CaloriesBurnedLB.TabIndex = 4;
             CaloriesBurnedLB.Text = "xxxx";
             // 
@@ -256,6 +271,10 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlDarkDark;
+            panel2.Controls.Add(groupBox1);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(DailyMinWarningLB);
+            panel2.Controls.Add(label8);
             panel2.Controls.Add(pictureBox5);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label7);
@@ -267,6 +286,118 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(869, 207);
             panel2.TabIndex = 3;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(label14);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(ACEFitnessBTN);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Location = new Point(374, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(479, 182);
+            groupBox1.TabIndex = 12;
+            groupBox1.TabStop = false;
+            groupBox1.Text = " INFO ";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Yu Gothic UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            label11.Location = new Point(13, 88);
+            label11.Name = "label11";
+            label11.Size = new Size(157, 15);
+            label11.TabIndex = 11;
+            label11.Text = "Struggling to find exercises?";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(13, 38);
+            label14.Name = "label14";
+            label14.Size = new Size(458, 65);
+            label14.TabIndex = 16;
+            label14.Text = resources.GetString("label14.Text");
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Yu Gothic UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            label13.Location = new Point(13, 19);
+            label13.Name = "label13";
+            label13.Size = new Size(82, 15);
+            label13.TabIndex = 15;
+            label13.Text = "Why exercise?";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.ForeColor = Color.Crimson;
+            label12.Location = new Point(57, 148);
+            label12.Name = "label12";
+            label12.Size = new Size(70, 15);
+            label12.TabIndex = 14;
+            label12.Text = "< - Click me";
+            // 
+            // ACEFitnessBTN
+            // 
+            ACEFitnessBTN.BackColor = SystemColors.ControlDarkDark;
+            ACEFitnessBTN.BackgroundImage = (Image)resources.GetObject("ACEFitnessBTN.BackgroundImage");
+            ACEFitnessBTN.BackgroundImageLayout = ImageLayout.Stretch;
+            ACEFitnessBTN.Cursor = Cursors.Hand;
+            ACEFitnessBTN.FlatStyle = FlatStyle.Flat;
+            ACEFitnessBTN.ForeColor = SystemColors.ControlDarkDark;
+            ACEFitnessBTN.Location = new Point(13, 147);
+            ACEFitnessBTN.Name = "ACEFitnessBTN";
+            ACEFitnessBTN.Size = new Size(38, 20);
+            ACEFitnessBTN.TabIndex = 12;
+            ACEFitnessBTN.UseVisualStyleBackColor = false;
+            ACEFitnessBTN.Click += ACEFitnessBTN_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(13, 103);
+            label10.Name = "label10";
+            label10.Size = new Size(411, 65);
+            label10.TabIndex = 13;
+            label10.Text = resources.GetString("label10.Text");
+            label10.Click += label10_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Yu Gothic UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            label9.Location = new Point(217, 97);
+            label9.Name = "label9";
+            label9.Size = new Size(100, 15);
+            label9.TabIndex = 9;
+            label9.Text = "Types of exercises";
+            // 
+            // DailyMinWarningLB
+            // 
+            DailyMinWarningLB.AutoSize = true;
+            DailyMinWarningLB.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            DailyMinWarningLB.Location = new Point(247, 168);
+            DailyMinWarningLB.Name = "DailyMinWarningLB";
+            DailyMinWarningLB.Size = new Size(37, 13);
+            DailyMinWarningLB.TabIndex = 8;
+            DailyMinWarningLB.Text = "label9";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Yu Gothic UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            label8.Location = new Point(213, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(113, 15);
+            label8.TabIndex = 7;
+            label8.Text = "Minutes worked out";
             // 
             // pictureBox5
             // 
@@ -311,10 +442,10 @@
             // DailyCalWarningLB
             // 
             DailyCalWarningLB.AutoSize = true;
-            DailyCalWarningLB.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            DailyCalWarningLB.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             DailyCalWarningLB.Location = new Point(60, 189);
             DailyCalWarningLB.Name = "DailyCalWarningLB";
-            DailyCalWarningLB.Size = new Size(38, 15);
+            DailyCalWarningLB.Size = new Size(37, 13);
             DailyCalWarningLB.TabIndex = 2;
             DailyCalWarningLB.Text = "label6";
             DailyCalWarningLB.Visible = false;
@@ -322,9 +453,10 @@
             // CalorieDailyFeedbackLB
             // 
             CalorieDailyFeedbackLB.AutoSize = true;
+            CalorieDailyFeedbackLB.Font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             CalorieDailyFeedbackLB.Location = new Point(21, 159);
             CalorieDailyFeedbackLB.Name = "CalorieDailyFeedbackLB";
-            CalorieDailyFeedbackLB.Size = new Size(31, 15);
+            CalorieDailyFeedbackLB.Size = new Size(27, 13);
             CalorieDailyFeedbackLB.TabIndex = 1;
             CalorieDailyFeedbackLB.Text = "xxxx";
             CalorieDailyFeedbackLB.TextAlign = ContentAlignment.MiddleLeft;
@@ -386,6 +518,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -421,5 +555,15 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox5;
+        private Label label8;
+        private Label DailyMinWarningLB;
+        private Label label9;
+        private GroupBox groupBox1;
+        private Button ACEFitnessBTN;
+        private Label label11;
+        private Label label10;
+        private Label label12;
+        private Label label14;
+        private Label label13;
     }
 }

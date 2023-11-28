@@ -40,6 +40,7 @@ namespace FitnessTracker
                 string Password = PasswordTB.Text;
                 string FirstName_ = FirstNameTB.Text;
                 string Lastname_ = LastNameTB.Text;
+                string UserEmail = EmailTB.Text;    
                 string Gender_ = "";
 
                 if (genderCB.Text == "Male")
@@ -76,14 +77,14 @@ namespace FitnessTracker
                     {
                         // Saving the data to the database. 
 
-                        var User = new tbl_Users { Username_ = Username, Password_ = Password, FirstName = FirstName_, LastName = Lastname_, Age = Age_, Gender = Gender_ };
+                        var User = new tbl_Users { Username_ = Username, Password_ = Password, FirstName = FirstName_, LastName = Lastname_, Age = Age_, Gender = Gender_, Email = UserEmail};
                         _context.Add(User);
                         _context.SaveChanges();
 
                         MessageBox.Show("Thank you for making an account with us. Now you can sign in!", "Thank you!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {   
+                    {
                         MessageBox.Show("You don't meet the password requirement(s)", "Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

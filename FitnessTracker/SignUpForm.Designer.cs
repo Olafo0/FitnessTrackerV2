@@ -49,6 +49,8 @@
             LastNameTB = new TextBox();
             FirstNameTB = new TextBox();
             WarningLabel = new Label();
+            EmailTB = new TextBox();
+            label10 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -57,6 +59,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(12, 18);
             label1.Name = "label1";
             label1.Size = new Size(50, 15);
@@ -66,6 +69,7 @@
             // CreateAccountBTN
             // 
             CreateAccountBTN.Cursor = Cursors.Hand;
+            CreateAccountBTN.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             CreateAccountBTN.Location = new Point(320, 458);
             CreateAccountBTN.Name = "CreateAccountBTN";
             CreateAccountBTN.Size = new Size(152, 23);
@@ -81,6 +85,7 @@
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(PasswordTB);
+            groupBox1.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 330);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(460, 122);
@@ -91,6 +96,7 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label9.Location = new Point(13, 97);
             label9.Name = "label9";
             label9.Size = new Size(161, 15);
@@ -100,27 +106,30 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label8.Location = new Point(13, 82);
             label8.Name = "label8";
-            label8.Size = new Size(165, 15);
+            label8.Size = new Size(163, 15);
             label8.TabIndex = 4;
             label8.Text = "- Contain at least one number";
             // 
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label7.Location = new Point(13, 67);
             label7.Name = "label7";
-            label7.Size = new Size(208, 15);
+            label7.Size = new Size(207, 15);
             label7.TabIndex = 3;
             label7.Text = "- Contain at least one specal character";
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(13, 52);
             label6.Name = "label6";
-            label6.Size = new Size(262, 15);
+            label6.Size = new Size(261, 15);
             label6.TabIndex = 2;
             label6.Text = "- Contain at least one Upper and lower character";
             // 
@@ -136,6 +145,7 @@
             // 
             groupBox2.Controls.Add(WarningLabel1);
             groupBox2.Controls.Add(UsernameTB);
+            groupBox2.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.Location = new Point(12, 229);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(460, 95);
@@ -149,7 +159,7 @@
             WarningLabel1.ForeColor = Color.Red;
             WarningLabel1.Location = new Point(137, 57);
             WarningLabel1.Name = "WarningLabel1";
-            WarningLabel1.Size = new Size(175, 15);
+            WarningLabel1.Size = new Size(174, 15);
             WarningLabel1.TabIndex = 1;
             WarningLabel1.Text = "* This username is already taken";
             WarningLabel1.Visible = false;
@@ -163,6 +173,8 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(label10);
+            groupBox3.Controls.Add(EmailTB);
             groupBox3.Controls.Add(label5);
             groupBox3.Controls.Add(label4);
             groupBox3.Controls.Add(label3);
@@ -171,6 +183,7 @@
             groupBox3.Controls.Add(genderCB);
             groupBox3.Controls.Add(LastNameTB);
             groupBox3.Controls.Add(FirstNameTB);
+            groupBox3.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.Location = new Point(12, 45);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(460, 178);
@@ -181,6 +194,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(206, 41);
             label5.Name = "label5";
             label5.Size = new Size(65, 15);
@@ -190,6 +204,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(31, 125);
             label4.Name = "label4";
             label4.Size = new Size(51, 15);
@@ -199,18 +214,20 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(13, 79);
             label3.Name = "label3";
-            label3.Size = new Size(69, 15);
+            label3.Size = new Size(68, 15);
             label3.TabIndex = 5;
             label3.Text = "Last Name :";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(13, 41);
             label2.Name = "label2";
-            label2.Size = new Size(70, 15);
+            label2.Size = new Size(69, 15);
             label2.TabIndex = 4;
             label2.Text = "First Name :";
             // 
@@ -248,13 +265,31 @@
             // WarningLabel
             // 
             WarningLabel.AutoSize = true;
+            WarningLabel.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             WarningLabel.ForeColor = Color.Red;
             WarningLabel.Location = new Point(89, 462);
             WarningLabel.Name = "WarningLabel";
-            WarningLabel.Size = new Size(172, 15);
+            WarningLabel.Size = new Size(170, 15);
             WarningLabel.TabIndex = 5;
             WarningLabel.Text = "* One or more fields are empty!";
             WarningLabel.Visible = false;
+            // 
+            // EmailTB
+            // 
+            EmailTB.Location = new Point(277, 71);
+            EmailTB.Name = "EmailTB";
+            EmailTB.Size = new Size(100, 23);
+            EmailTB.TabIndex = 8;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(229, 76);
+            label10.Name = "label10";
+            label10.Size = new Size(41, 15);
+            label10.TabIndex = 9;
+            label10.Text = "Email :";
             // 
             // SignUpForm
             // 
@@ -302,5 +337,7 @@
         private Label label7;
         private Label label6;
         private Label WarningLabel1;
+        private Label label10;
+        private TextBox EmailTB;
     }
 }
