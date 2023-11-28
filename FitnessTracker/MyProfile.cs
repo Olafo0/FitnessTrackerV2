@@ -187,6 +187,7 @@ namespace FitnessTracker
 
         private void ChangeCurPassBTN_Click(object sender, EventArgs e)
         {
+            IncPassLB.Visible = true;
             SendEmailCodeBTN.Visible = true;
             ForgotPassPanel.Visible = false;
             NewPasswordCurrentPanel.Location = new(17, 54);

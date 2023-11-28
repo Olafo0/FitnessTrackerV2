@@ -61,6 +61,8 @@
             label8 = new Label();
             IncPassLB = new Label();
             ForgotPassPanel = new Panel();
+            label26 = new Label();
+            label25 = new Label();
             ContinueBTN = new Button();
             EmailCodeTB = new TextBox();
             SendEmailCodeBTN = new Button();
@@ -88,8 +90,6 @@
             label21 = new Label();
             label20 = new Label();
             pictureBox1 = new PictureBox();
-            label25 = new Label();
-            label26 = new Label();
             CurrentGoalsGP.SuspendLayout();
             SetUpGoalGB.SuspendLayout();
             WeeklyPanel.SuspendLayout();
@@ -297,6 +297,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(NewPasswordCurrentPanel);
+            groupBox2.Controls.Add(ForgotPassPanel);
             groupBox2.Controls.Add(ChangePassEmailPanel);
             groupBox2.Controls.Add(ChangeCurPassBTN);
             groupBox2.Controls.Add(ForgotPassBTN);
@@ -319,7 +320,7 @@
             NewPasswordCurrentPanel.Controls.Add(ChangePasswordBTN);
             NewPasswordCurrentPanel.Controls.Add(label8);
             NewPasswordCurrentPanel.Controls.Add(IncPassLB);
-            NewPasswordCurrentPanel.Location = new Point(6, 54);
+            NewPasswordCurrentPanel.Location = new Point(2, 72);
             NewPasswordCurrentPanel.Name = "NewPasswordCurrentPanel";
             NewPasswordCurrentPanel.Size = new Size(291, 256);
             NewPasswordCurrentPanel.TabIndex = 5;
@@ -425,10 +426,29 @@
             ForgotPassPanel.Controls.Add(EmailCodeTB);
             ForgotPassPanel.Controls.Add(SendEmailCodeBTN);
             ForgotPassPanel.Controls.Add(label17);
-            ForgotPassPanel.Location = new Point(248, 89);
+            ForgotPassPanel.Location = new Point(302, 87);
             ForgotPassPanel.Name = "ForgotPassPanel";
             ForgotPassPanel.Size = new Size(291, 259);
             ForgotPassPanel.TabIndex = 10;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(49, 97);
+            label26.Name = "label26";
+            label26.Size = new Size(207, 15);
+            label26.TabIndex = 14;
+            label26.Text = "Enter your token before you continue!";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(5, 6);
+            label25.Name = "label25";
+            label25.Size = new Size(283, 45);
+            label25.TabIndex = 13;
+            label25.Text = "An email will be sent to the linked email \r\nto this account. The email will contain a token which\r\nyou need to enter below.\r\n";
+            label25.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ContinueBTN
             // 
@@ -477,7 +497,7 @@
             ChangePassEmailPanel.Controls.Add(label18);
             ChangePassEmailPanel.Controls.Add(ChangePassBTN);
             ChangePassEmailPanel.Controls.Add(label19);
-            ChangePassEmailPanel.Location = new Point(299, 172);
+            ChangePassEmailPanel.Location = new Point(299, 178);
             ChangePassEmailPanel.Name = "ChangePassEmailPanel";
             ChangePassEmailPanel.Size = new Size(291, 256);
             ChangePassEmailPanel.TabIndex = 10;
@@ -582,7 +602,6 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(CaloriesBurnedTB);
-            groupBox3.Controls.Add(ForgotPassPanel);
             groupBox3.Controls.Add(label24);
             groupBox3.Controls.Add(GenderTB);
             groupBox3.Controls.Add(AgeTB);
@@ -693,25 +712,6 @@
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Location = new Point(5, 6);
-            label25.Name = "label25";
-            label25.Size = new Size(283, 45);
-            label25.TabIndex = 13;
-            label25.Text = "An email will be sent to the linked email \r\nto this account. The email will contain a token which\r\nyou need to enter below.\r\n";
-            label25.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.Location = new Point(49, 97);
-            label26.Name = "label26";
-            label26.Size = new Size(207, 15);
-            label26.TabIndex = 14;
-            label26.Text = "Enter your token before you continue!";
             // 
             // MyProfile
             // 
