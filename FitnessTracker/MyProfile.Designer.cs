@@ -77,17 +77,19 @@
             ChangeCurPassBTN = new Button();
             ForgotPassBTN = new Button();
             groupBox3 = new GroupBox();
+            CaloriesBurnedTB = new TextBox();
+            label24 = new Label();
+            GenderTB = new TextBox();
+            AgeTB = new TextBox();
+            LastNameTB = new TextBox();
+            NameTB = new TextBox();
             label23 = new Label();
             label22 = new Label();
             label21 = new Label();
             label20 = new Label();
             pictureBox1 = new PictureBox();
-            NameTB = new TextBox();
-            LastNameTB = new TextBox();
-            AgeTB = new TextBox();
-            GenderTB = new TextBox();
-            label24 = new Label();
-            CaloriesBurnedTB = new TextBox();
+            label25 = new Label();
+            label26 = new Label();
             CurrentGoalsGP.SuspendLayout();
             SetUpGoalGB.SuspendLayout();
             WeeklyPanel.SuspendLayout();
@@ -295,7 +297,6 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(NewPasswordCurrentPanel);
-            groupBox2.Controls.Add(ForgotPassPanel);
             groupBox2.Controls.Add(ChangePassEmailPanel);
             groupBox2.Controls.Add(ChangeCurPassBTN);
             groupBox2.Controls.Add(ForgotPassBTN);
@@ -418,11 +419,13 @@
             // 
             // ForgotPassPanel
             // 
+            ForgotPassPanel.Controls.Add(label26);
+            ForgotPassPanel.Controls.Add(label25);
             ForgotPassPanel.Controls.Add(ContinueBTN);
             ForgotPassPanel.Controls.Add(EmailCodeTB);
             ForgotPassPanel.Controls.Add(SendEmailCodeBTN);
             ForgotPassPanel.Controls.Add(label17);
-            ForgotPassPanel.Location = new Point(302, 59);
+            ForgotPassPanel.Location = new Point(248, 89);
             ForgotPassPanel.Name = "ForgotPassPanel";
             ForgotPassPanel.Size = new Size(291, 259);
             ForgotPassPanel.TabIndex = 10;
@@ -579,6 +582,7 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(CaloriesBurnedTB);
+            groupBox3.Controls.Add(ForgotPassPanel);
             groupBox3.Controls.Add(label24);
             groupBox3.Controls.Add(GenderTB);
             groupBox3.Controls.Add(AgeTB);
@@ -594,6 +598,54 @@
             groupBox3.TabIndex = 5;
             groupBox3.TabStop = false;
             groupBox3.Text = " My details ";
+            // 
+            // CaloriesBurnedTB
+            // 
+            CaloriesBurnedTB.Location = new Point(378, 41);
+            CaloriesBurnedTB.Name = "CaloriesBurnedTB";
+            CaloriesBurnedTB.Size = new Size(100, 23);
+            CaloriesBurnedTB.TabIndex = 9;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(248, 44);
+            label24.Name = "label24";
+            label24.Size = new Size(123, 15);
+            label24.TabIndex = 8;
+            label24.Text = "Total Calories Burned :";
+            // 
+            // GenderTB
+            // 
+            GenderTB.Location = new Point(137, 133);
+            GenderTB.Name = "GenderTB";
+            GenderTB.ReadOnly = true;
+            GenderTB.Size = new Size(43, 23);
+            GenderTB.TabIndex = 7;
+            // 
+            // AgeTB
+            // 
+            AgeTB.Location = new Point(109, 100);
+            AgeTB.Name = "AgeTB";
+            AgeTB.ReadOnly = true;
+            AgeTB.Size = new Size(100, 23);
+            AgeTB.TabIndex = 6;
+            // 
+            // LastNameTB
+            // 
+            LastNameTB.Location = new Point(109, 70);
+            LastNameTB.Name = "LastNameTB";
+            LastNameTB.ReadOnly = true;
+            LastNameTB.Size = new Size(100, 23);
+            LastNameTB.TabIndex = 5;
+            // 
+            // NameTB
+            // 
+            NameTB.Location = new Point(109, 41);
+            NameTB.Name = "NameTB";
+            NameTB.ReadOnly = true;
+            NameTB.Size = new Size(100, 23);
+            NameTB.TabIndex = 4;
             // 
             // label23
             // 
@@ -642,53 +694,24 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // NameTB
+            // label25
             // 
-            NameTB.Location = new Point(109, 41);
-            NameTB.Name = "NameTB";
-            NameTB.ReadOnly = true;
-            NameTB.Size = new Size(100, 23);
-            NameTB.TabIndex = 4;
+            label25.AutoSize = true;
+            label25.Location = new Point(5, 6);
+            label25.Name = "label25";
+            label25.Size = new Size(283, 45);
+            label25.TabIndex = 13;
+            label25.Text = "An email will be sent to the linked email \r\nto this account. The email will contain a token which\r\nyou need to enter below.\r\n";
+            label25.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // LastNameTB
+            // label26
             // 
-            LastNameTB.Location = new Point(109, 70);
-            LastNameTB.Name = "LastNameTB";
-            LastNameTB.ReadOnly = true;
-            LastNameTB.Size = new Size(100, 23);
-            LastNameTB.TabIndex = 5;
-            // 
-            // AgeTB
-            // 
-            AgeTB.Location = new Point(109, 100);
-            AgeTB.Name = "AgeTB";
-            AgeTB.ReadOnly = true;
-            AgeTB.Size = new Size(100, 23);
-            AgeTB.TabIndex = 6;
-            // 
-            // GenderTB
-            // 
-            GenderTB.Location = new Point(137, 133);
-            GenderTB.Name = "GenderTB";
-            GenderTB.ReadOnly = true;
-            GenderTB.Size = new Size(43, 23);
-            GenderTB.TabIndex = 7;
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Location = new Point(248, 44);
-            label24.Name = "label24";
-            label24.Size = new Size(123, 15);
-            label24.TabIndex = 8;
-            label24.Text = "Total Calories Burned :";
-            // 
-            // CaloriesBurnedTB
-            // 
-            CaloriesBurnedTB.Location = new Point(378, 41);
-            CaloriesBurnedTB.Name = "CaloriesBurnedTB";
-            CaloriesBurnedTB.Size = new Size(100, 23);
-            CaloriesBurnedTB.TabIndex = 9;
+            label26.AutoSize = true;
+            label26.Location = new Point(49, 97);
+            label26.Name = "label26";
+            label26.Size = new Size(207, 15);
+            label26.TabIndex = 14;
+            label26.Text = "Enter your token before you continue!";
             // 
             // MyProfile
             // 
@@ -788,5 +811,7 @@
         private TextBox LastNameTB;
         private TextBox NameTB;
         private TextBox CaloriesBurnedTB;
+        private Label label25;
+        private Label label26;
     }
 }

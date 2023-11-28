@@ -193,8 +193,6 @@ namespace FitnessTracker
             NewPasswordCurrentPanel.Visible = true;
         }
 
-
-
         private void SendEmailCodeBTN_Click(object sender, EventArgs e)
         {
             var CurrentUser = _context.Users.Where(x => x.AccountID == AccountID).Single();
@@ -203,8 +201,8 @@ namespace FitnessTracker
             CodeGenerated = RandomCodeForEmail.Next(100, 1000);
 
             // Set up the sender's email address and password
-            string senderEmail = "opaladzs@gmail.com";
-            string senderPassword = "dwzx oswj ivng ctdt";
+            string senderEmail = "opaladzs@gmail.com"; // Add your email
+            string senderPassword = "dwzx oswj ivng ctdt"; // Add your 'APP PASSWORD' - Please search this on google
 
             // Set up the recipient's email address
             string recipientEmail = CurrentUser.Email;

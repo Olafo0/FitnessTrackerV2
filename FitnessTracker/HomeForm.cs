@@ -147,9 +147,7 @@ namespace FitnessTracker
                 TooltipTextSize = 12,
 
                 Location = new System.Drawing.Point(550, 0),
-                //500, 0
                 Size = new System.Drawing.Size(270, 250),
-                // 370 250
                 Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom
             };
 
@@ -304,13 +302,6 @@ namespace FitnessTracker
             CaloriesTotalGauge_Daily();
             MinutesWorkedOutGauge();
             ExerciseType_Daily();
-
-            // Building off this at some point.... 
-            //var eee = _context.Exercises.Where(x => x.DayOfExercise == DateTime.Now.Date).ToList();
-            //DateTime DayOfYesterday = DateTime.Now.AddDays(-1);
-            //DateTime DayOfYesterdayF = DayOfYesterday.Date;
-            //var eee2 = _context.Exercises.Where(x => x.DayOfExercise == DayOfYesterdayF).ToList();
-            // .. .. .. .. .. ..
         }
 
         private void DaySelector_SelectedValueChanged(object sender, EventArgs e)
