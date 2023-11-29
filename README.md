@@ -9,7 +9,7 @@ This application uses :
 - Live Charts 2 (Beta)
 - Regex
 
-Showcase : [https://youtu.be/teU3bhfteJA](https://youtu.be/YhbhmJ2XCzc)
+Showcase : https://www.youtube.com/watch?v=YhbhmJ2XCzc
 
 Photos :
 
