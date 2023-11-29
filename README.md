@@ -9,6 +9,8 @@ This application uses :
 - Live Charts 2 (Beta)
 - Regex
 
+Showcase : https://youtu.be/teU3bhfteJA
+
 Photos :
 
 ![image](https://github.com/Olafo0/FitnessTrackerV2/assets/89582698/fd34cf5e-32d7-4d29-ae93-6f2db5749f5b)
